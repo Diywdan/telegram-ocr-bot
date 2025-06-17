@@ -219,7 +219,7 @@ async def handle_file(update: Update, context: ContextTypes.DEFAULT_TYPE):
 async def notify_admin(application):
     await application.bot.send_message(chat_id=ADMIN_CHAT_ID, text="🤖 Бот загружен и готов к работе!")
 
-app = ApplicationBuilder().token(TOKEN).post_init(notify_admin).build()
+app = application = ApplicationBuilder().token(TOKEN).drop_pending_updates(True).build()
 app.add_handler(CommandHandler("start", start))
 app.add_handler(CommandHandler("help", help_command))
 app.add_handler(CommandHandler("stats", stats_command))
