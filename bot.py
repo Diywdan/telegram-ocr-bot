@@ -11,8 +11,11 @@ import logging
 import json
 import csv
 
-TOKEN = "8187242209:AAE8ZsXRJHfpqlr5-pfICIFZ33hl5RGUvTQ"
-ADMIN_CHAT_ID = 984818559
+import os  # добавляем, если не было
+
+TOKEN = os.environ.get("BOT_TOKEN")
+ADMIN_CHAT_ID = int(os.environ.get("ADMIN_CHAT_ID"))
+
 
 logging.basicConfig(format="%(asctime)s - %(message)s", level=logging.INFO)
 log = logging.getLogger()
